@@ -15,7 +15,7 @@
 						<div class="product-details-row1-head">
 							<input type="hidden" name="id_penjualan" value="<?php echo $pen->id_penjualan;?>">
 							<h2 style="font-family: Berlin Sans FB; font-size: 60px;"><?php echo $pen->nama_barang;?></h2>
-							<p>Product By Camilan Goreng Dua Putra</p>
+							<p>Product By Camilan Goreng Dua Putra(FE)</p>
 						</div>
 
 						<div class="col-md-4 product-details-row1-col1">

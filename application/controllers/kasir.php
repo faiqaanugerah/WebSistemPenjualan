@@ -1,33 +1,19 @@
 <?php  
-class admin extends CI_Controller
+class kasir extends CI_Controller
 {
 	function __construct()
 	{
 		parent::__construct();
-		if($this->session->userdata('level') !=1){
+		if($this->session->userdata('level') !=4){
 			redirect('auth');
 		}
 		$this->load->model('model_log');
-
 	}
 	public function index()
 	{
-		$this->load->view("admin");
-	}
-	public function gudang()
-	{
-		$this->load->view("admin/gudang");
-	}
-	public function penjualan()
-	{
 		$data['penjualan'] = $this->model_log->tampil_data()->result();
-		$this->load->view("admin/penjualan",$data);
+		$this->load->view("kasir",$data);
 	}
-	public function barang_masuk()
-	{
-		$this->load->view("admin/barang_masuk");
-	}
-
 	public function tambah_barang()
 	{
 		$nama_barang = $this->input->post('nama_barang');
@@ -74,7 +60,5 @@ class admin extends CI_Controller
 		$this->model_log->update_data($where,$data,'penjualan');
 		redirect('admin/penjualan');
 	}
-
-
 }
 ?>

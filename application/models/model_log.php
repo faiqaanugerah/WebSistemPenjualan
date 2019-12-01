@@ -5,6 +5,21 @@ class model_log extends CI_Model
 	{
 		return $this->db->get('penjualan');
 	}
+	public function hapus_data($where,$table)
+	{
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
+	public function edit_data($where,$table)
+	{
+		return $this->db->get_where($table,$where);
+	}
+
+	public function update_data($where,$data,$table)
+	{
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
 	
 	public function ver($username,$password)
 	{
@@ -25,6 +40,12 @@ class model_log extends CI_Model
 		}
 		elseif($lvl == 3){
 			redirect('user');
+		}
+		elseif($lvl == 2){
+			redirect('distributor');
+		}
+		elseif($lvl == 4){
+			redirect('kasir');
 		}
 		}
 		else{
